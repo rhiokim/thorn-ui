@@ -2,8 +2,6 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import './App.css';
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +15,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-        <div className="route">
+        <div>
           {this.props.children}
         </div>
         <Footer />
