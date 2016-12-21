@@ -1,11 +1,15 @@
 {
-  "name": "react-boilerplate",
-  "version": "0.4.0",
-  "description": "The React-Boilerplate is boilerplate app based on official create-react-app cli of Facebook",
+  "name": "thron-ui",
+  "version": "0.0.1",
+  "description": "thorn ui for WAF(web application firewall) system",
   "keywords": [
-    "react",
-    "create-react-app",
-    "webpack"
+    "thorn",
+    "waf",
+    "firewall",
+    "nginx",
+    "naxsi",
+    "mod secuirty",
+    "netfilter"
   ],
   "author": "Rhio Kim <rhio.kim@gmail.com>",
   "license": "ISC",
@@ -91,10 +95,10 @@
     "deploy": "npm run build && npm run docker:build",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
-    "docker:build": "docker build --tag react-app -f ./config/docker/Dockerfile . && npm run docker:images",
-    "docker:images": "docker images | grep react-app",
-    "docker:run": "docker run -dit -p 8081:80 --name react-app react-app:latest",
-    "docker:rm": "docker rm -f react-app",
+    "docker:build": "docker build --tag thorn-ui -f ./config/docker/Dockerfile . && npm run docker:images",
+    "docker:images": "docker images | grep thorn-ui",
+    "docker:run": "docker run -dit -p 8081:80 --name thorn-ui thorn-ui:latest",
+    "docker:rm": "docker rm -f thorn-ui",
     "docker": "npm run docker:rm && npm run docker:build && npm run docker:run"
   },
   "jest": {

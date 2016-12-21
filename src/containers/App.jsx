@@ -22,12 +22,12 @@ export default class App extends React.Component {
         </div>
         <Footer />
         {
-          (() => {
-            if (process.env.NODE_ENV === 'development') {
-              const DevTools = require('../DevTools').default;
-              return <DevTools />;
-            }
-          })()
+          // (() => {
+          //   if (process.env.NODE_ENV === 'development') {
+          //     const DevTools = require('../DevTools').default;
+          //     return <DevTools />;
+          //   }
+          // })()
         }
       </div>
     );
