@@ -15,9 +15,13 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-        <div>
-          {this.props.children}
+
+        <div className="page-container">
+          <div className="page-content">
+            {this.props.children}
+          </div>
         </div>
+
         <Footer />
         {
           // (() => {

@@ -10,7 +10,7 @@ export default class Header extends React.Component {
 
         <div className="navbar-collapse collapse" id="footer">
           <div className="navbar-text">
-            &copy; 2017. <a href="#" className="navbar-link">Web Evolution Team</a> by <a href="http://cdnetworks.com" className="navbar-link" target="_blank">CDNetworks</a>
+            &copy; 2015. <a href="#" className="navbar-link">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" className="navbar-link" target="_blank">Eugene Kopyov</a>
           </div>
 
           <div className="navbar-right">
