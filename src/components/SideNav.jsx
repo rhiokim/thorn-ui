@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class SideNav extends React.Component {
   render() {
@@ -21,23 +22,24 @@ export default class SideNav extends React.Component {
 
                 {/* Main */}
                 <li className="navigation-header"><span>Main</span> <i className="icon-menu" title="Main pages"></i></li>
-                <li><a href="../index.html"><i className="icon-home4"></i> <span>Dashboard</span></a></li>
+                <li><Link to="/"><i className="icon-home4"></i> <span>Dashboard</span></Link></li>
                 <li>
-                  <a href="#"><i className="icon-stack"></i> <span>Netfilter</span></a>
+                  <Link to="/netfilter"><i className="icon-home4"></i> <span>Netfilter</span></Link>
                   <ul>
-                    <li><a href="1_col.html">Port forwarding</a></li>
-                    <li><a href="1_col.html">iptable</a></li>
+                    <li><Link to="/netfilter/portfowarding">port forwarding</Link></li>
+                    <li><Link to="/netfilter/iptable">iptable</Link></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#"><i className="icon-stack"></i> <span>Rules / Whitelist</span></a>
                   <ul>
-                    <li><a href="1_col.html">New Rules</a></li>
-                    <li><a href="1_col.html">Rules</a></li>
-                    <li className="active"><a href="2_col.html">Rule Sets</a></li>
+                    <li><Link to="/rules/new">New Rules</Link></li>
+                    <li><Link to="/rules">Rules</Link></li>
+                    <li><Link to="/rules/sets">Rule Sets</Link></li>
                     <li className="navigation-divider"></li>
-                    <li><a href="layout_navbar_fixed_main.html">Whitelist</a></li>
-                    <li><a href="layout_navbar_fixed_secondary.html">Whitelist Sets</a></li>
+                    <li><Link to="/whitelists/new">New Whitelist</Link></li>
+                    <li><Link to="/whitelists">Whitelist</Link></li>
+                    <li><Link to="/whitelists/sets">Whitelist Sets</Link></li>
                   </ul>
                 </li>
                 <li><a href="../changelog.html"><i className="icon-list-unordered"></i> <span>Settings</span></a></li>
