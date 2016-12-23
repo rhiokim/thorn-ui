@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-import HeaderTitle from './HeaderTitle';
 import HeaderNav from './HeaderNav';
-import HeaderNavSec from './HeaderNavSec';
+// import HeaderTitle from './HeaderTitle';
+// import HeaderNavSec from './HeaderNavSec';
 
 export default class Header extends React.Component {
   render() {
@@ -12,10 +12,6 @@ export default class Header extends React.Component {
 
         {/* Main navbar */}
         <HeaderNav />
-
-        <HeaderTitle />
-
-        <HeaderNavSec />
       </div>
     );
   }

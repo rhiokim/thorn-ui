@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SideNav from '../components/SideNav';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,8 @@ export default class App extends React.Component {
 
         <div className="page-container">
           <div className="page-content">
+            <SideNav />
+
             {this.props.children}
           </div>
         </div>

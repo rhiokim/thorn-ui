@@ -83,7 +83,6 @@ export default class Home extends React.Component {
           </div>
         </div>
 
-
         <div className="row">
           <div className="col-md-6">
 
