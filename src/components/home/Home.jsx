@@ -5,6 +5,11 @@ export default class Home extends React.Component {
     return (
       <div className="content-wrapper">
 
+        <div className="pt-card pt-elevation-1 mb-20">
+          <h6 className="text-semibold">Start your development with no hassle!</h6>
+          <p className="content-group">Common problem of templates is that all code is deeply integrated into the core. This limits your freedom in decreasing amount of code, i.e. it becomes pretty difficult to remove unnecessary code from the project. Limitless allows you to remove unnecessary and extra code easily just by removing the path to specific LESS file with component styling. All plugins and their options are also in separate files. Use only components you actually need!</p>
+        </div>
+
         <div className="panel panel-flat">
           <div className="panel-heading">
             <h5 className="panel-title">Simple panel</h5>

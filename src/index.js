@@ -8,6 +8,7 @@ import {syncHistoryWithStore} from 'react-router-redux';
  * Customized CSS for App initilization
  */
 // import './assets/css/normalize.css';
+import '@blueprintjs/core/dist/blueprint.css';
 import './assets/css/icomoon/styles.css';
 import './assets/_main/bootstrap.less';
 import './assets/_main/core.less';

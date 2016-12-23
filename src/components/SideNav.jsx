@@ -23,27 +23,24 @@ export default class SideNav extends React.Component {
                 <li className="navigation-header"><span>Main</span> <i className="icon-menu" title="Main pages"></i></li>
                 <li><a href="../index.html"><i className="icon-home4"></i> <span>Dashboard</span></a></li>
                 <li>
-                  <a href="#"><i className="icon-stack"></i> <span>Starter kit</span></a>
+                  <a href="#"><i className="icon-stack"></i> <span>Netfilter</span></a>
                   <ul>
-                    <li><a href="1_col.html">1 column</a></li>
-                    <li className="active"><a href="2_col.html">2 columns</a></li>
-                    <li>
-                      <a href="#">3 columns</a>
-                      <ul>
-                        <li><a href="3_col_dual.html">Dual sidebars</a></li>
-                        <li><a href="3_col_double.html">Double sidebars</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="4_col.html">4 columns</a></li>
-                    <li><a href="layout_boxed.html">Boxed layout</a></li>
-                    <li className="navigation-divider"></li>
-                    <li><a href="layout_navbar_fixed_main.html">Fixed top navbar</a></li>
-                    <li><a href="layout_navbar_fixed_secondary.html">Fixed secondary navbar</a></li>
-                    <li><a href="layout_navbar_fixed_both.html">Both navbars fixed</a></li>
-                    <li><a href="layout_sidebar_sticky.html">Sticky sidebar</a></li>
+                    <li><a href="1_col.html">Port forwarding</a></li>
+                    <li><a href="1_col.html">iptable</a></li>
                   </ul>
                 </li>
-                <li><a href="../changelog.html"><i className="icon-list-unordered"></i> <span>Changelog</span></a></li>
+                <li>
+                  <a href="#"><i className="icon-stack"></i> <span>Rules / Whitelist</span></a>
+                  <ul>
+                    <li><a href="1_col.html">New Rules</a></li>
+                    <li><a href="1_col.html">Rules</a></li>
+                    <li className="active"><a href="2_col.html">Rule Sets</a></li>
+                    <li className="navigation-divider"></li>
+                    <li><a href="layout_navbar_fixed_main.html">Whitelist</a></li>
+                    <li><a href="layout_navbar_fixed_secondary.html">Whitelist Sets</a></li>
+                  </ul>
+                </li>
+                <li><a href="../changelog.html"><i className="icon-list-unordered"></i> <span>Settings</span></a></li>
                 {/* /main */}
 
               </ul>
