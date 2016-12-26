@@ -33,11 +33,9 @@ export default class SideNav extends React.Component {
                 <li>
                   <a href="#"><i className="icon-stack"></i> <span>Rules / Whitelist</span></a>
                   <ul>
-                    <li><Link to="/rules/new">New Rules</Link></li>
                     <li><Link to="/rules">Rules</Link></li>
                     <li><Link to="/rules/sets">Rule Sets</Link></li>
                     <li className="navigation-divider"></li>
-                    <li><Link to="/whitelists/new">New Whitelist</Link></li>
                     <li><Link to="/whitelists">Whitelist</Link></li>
                     <li><Link to="/whitelists/sets">Whitelist Sets</Link></li>
                   </ul>

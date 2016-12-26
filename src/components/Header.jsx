@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router';
 
 import HeaderNav from './HeaderNav';
 // import HeaderTitle from './HeaderTitle';
@@ -8,7 +7,7 @@ import HeaderNav from './HeaderNav';
 export default class Header extends React.Component {
   render() {
     return (
-      <div className="page-header page-header-inverse bg-indigo">
+      <div className="page-header">
 
         {/* Main navbar */}
         <HeaderNav />
