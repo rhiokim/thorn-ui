@@ -2,13 +2,12 @@ import React from 'react'
 import {Link, withRouter} from 'react-router'
 import {Menu, MenuDivider, MenuItem, Popover, Position} from "@blueprintjs/core"
 
-import logo from '../assets/images/logo_light.png'
+import logo from '../assets/images/logo_dark.png'
 import profile from '../assets/images/image.png'
 
 class HeaderNav extends React.Component {
 
   handleClick(act) {
-    console.log("clicked", act)
     switch (act) {
       case 'new-rule':
         this.props.router.push('/rules/new')
@@ -57,8 +56,7 @@ class HeaderNav extends React.Component {
       <div className="navbar">
         <nav className="pt-navbar">
           <div className="pt-navbar-group pt-align-left">
-            <div className="pt-navbar-heading">CDNetworks</div>
-            <input className="pt-input" placeholder="Search files..." type="text" />
+            <div className="pt-navbar-heading"><img src={logo} width="60%" /></div>
           </div>
           <div className="pt-navbar-group pt-align-right">
             <Link to="/" className="pt-button pt-minimal pt-icon-home">Home</Link>
