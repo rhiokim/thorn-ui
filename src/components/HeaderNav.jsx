@@ -1,10 +1,32 @@
 import React from 'react'
+import {Link, withRouter} from 'react-router'
 import {Menu, MenuDivider, MenuItem, Popover, Position} from "@blueprintjs/core"
 
 import logo from '../assets/images/logo_light.png'
 import profile from '../assets/images/image.png'
 
-export default class HeaderNav extends React.Component {
+class HeaderNav extends React.Component {
+
+  handleClick(act) {
+    console.log("clicked", act)
+    switch (act) {
+      case 'new-rule':
+        this.props.router.push('/rules/new')
+      break
+      case 'new-wl':
+        this.props.router.push('/whitelists/new')
+      break
+      case 'new-port':
+        this.props.router.push('/netfilter/ports/new')
+      break
+      case 'new-iptable':
+        this.props.router.push('/netfilter/iptable/new')
+      break
+      default:
+      break
+    }
+  }
+
   render() {
 
     const configMenu = (
@@ -23,11 +45,11 @@ export default class HeaderNav extends React.Component {
 
     const ruleMenu = (
       <Menu>
-        <MenuItem iconName="add" text="New Rule" />
-        <MenuItem iconName="map" text="New Whitelist" />
+        <MenuItem iconName="add" text="New Rule" onClick={this.handleClick.bind(this, 'new-rule')}/>
+        <MenuItem iconName="map" text="New Whitelist" onClick={this.handleClick.bind(this, 'new-wl')} />
         <MenuDivider />
-        <MenuItem iconName="add" text="Manage port forwarding" />
-        <MenuItem iconName="map" text="Manage iptable" />
+        <MenuItem iconName="add" text="Manage port forwarding" onClick={this.handleClick.bind(this, 'new-port')} />
+        <MenuItem iconName="map" text="Manage iptable" onClick={this.handleClick.bind(this, 'new-iptable')} />
       </Menu>
     )
 
@@ -39,12 +61,11 @@ export default class HeaderNav extends React.Component {
             <input className="pt-input" placeholder="Search files..." type="text" />
           </div>
           <div className="pt-navbar-group pt-align-right">
-            <button className="pt-button pt-minimal pt-icon-home">Home</button>
-            <button className="pt-button pt-minimal pt-icon-document">Files</button>
+            <Link to="/" className="pt-button pt-minimal pt-icon-home">Home</Link>
             <span className="pt-navbar-divider"></span>
 
             <Popover content={ruleMenu} position={Position.BOTTOM_RIGHT}>
-              <button className="pt-button pt-minimal pt-icon-add"></button>
+              <button className="pt-button pt-minimal pt-icon-add-to-artifact"></button>
             </Popover>
             <button className="pt-button pt-minimal pt-icon-notifications"></button>
             <Popover content={configMenu} position={Position.BOTTOM_RIGHT}>
@@ -56,3 +77,5 @@ export default class HeaderNav extends React.Component {
     )
   }
 }
+
+export default withRouter(HeaderNav)

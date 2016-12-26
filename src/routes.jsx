@@ -14,6 +14,8 @@ import Whitelists from './components/rules/Rules'
 import WhitelistSets from './components/rules/WhitelistSets'
 import PortForwarding from './components/netfilter/PortForwarding'
 import IPTable from './components/netfilter/IPTable'
+import NewIPTable from './components/netfilter/NewIPTable'
+import NewPort from './components/netfilter/NewPort'
 
 export default (
   <Route path="/" component={App}>
@@ -31,8 +33,14 @@ export default (
       <Route path="sets" component={WhitelistSets} />
     </Route>
     <Route path="netfilter">
-      <Route path="portfowarding" component={PortForwarding} />
-      <Route path="iptable" component={IPTable} />
+      <Route path="ports">
+        <IndexRoute component={PortForwarding} />
+        <Route path="new" component={NewPort} />
+      </Route>
+      <Route path="iptable">
+        <IndexRoute component={IPTable} />
+        <Route path="new" component={NewIPTable} />
+      </Route>
     </Route>
   </Route>
 );

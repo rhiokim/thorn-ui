@@ -24,13 +24,6 @@ export default class SideNav extends React.Component {
                 <li className="navigation-header"><span>Main</span> <i className="icon-menu" title="Main pages"></i></li>
                 <li><Link to="/"><i className="icon-home4"></i> <span>Dashboard</span></Link></li>
                 <li>
-                  <Link to="/netfilter"><i className="icon-home4"></i> <span>Netfilter</span></Link>
-                  <ul>
-                    <li><Link to="/netfilter/portfowarding">port forwarding</Link></li>
-                    <li><Link to="/netfilter/iptable">iptable</Link></li>
-                  </ul>
-                </li>
-                <li>
                   <a href="#"><i className="icon-stack"></i> <span>Rules / Whitelist</span></a>
                   <ul>
                     <li><Link to="/rules">Rules</Link></li>
@@ -38,6 +31,13 @@ export default class SideNav extends React.Component {
                     <li className="navigation-divider"></li>
                     <li><Link to="/whitelists">Whitelist</Link></li>
                     <li><Link to="/whitelists/sets">Whitelist Sets</Link></li>
+                  </ul>
+                </li>
+                <li>
+                  <Link to="/netfilter"><i className="icon-home4"></i> <span>Netfilter</span></Link>
+                  <ul>
+                    <li><Link to="/netfilter/ports">port forwarding</Link></li>
+                    <li><Link to="/netfilter/iptable">iptable</Link></li>
                   </ul>
                 </li>
                 <li><a href="../changelog.html"><i className="icon-list-unordered"></i> <span>Settings</span></a></li>
