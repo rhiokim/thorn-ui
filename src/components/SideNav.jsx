@@ -22,7 +22,15 @@ export default class SideNav extends React.Component {
 
                 {/* Main */}
                 <li className="navigation-header"><span>Main</span> <i className="icon-menu" title="Main pages"></i></li>
-                <li><Link to="/"><i className="icon-home4"></i> <span>Dashboard</span></Link></li>
+                <li>
+                  <Link to="/"><i className="icon-home4"></i> <span>Dashboard</span></Link>
+                  <ul>
+                    <li><Link to="/">Statistics</Link></li>
+                    <li><Link to="/">Log Analysis</Link></li>
+                    <li><Link to="/">Alerts</Link></li>
+                    <li><Link to="/">Status</Link></li>
+                  </ul>
+                </li>
                 <li>
                   <a href="#"><i className="icon-stack"></i> <span>Rules / Whitelist</span></a>
                   <ul>
