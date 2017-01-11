@@ -30,14 +30,15 @@ class HeaderNav extends React.Component {
 
     const configMenu = (
       <Menu>
-        <MenuItem iconName="graph" text="Profile" />
-        <MenuItem iconName="map" text="You" />
-        <MenuItem iconName="th" text="Table" shouldDismissPopover={false} />
-        <MenuItem iconName="zoom-to-fit" text="Nucleus" disabled={true} />
+        <MenuItem iconName="graph" text="Thorn Documentation" />
+        <MenuItem iconName="graph" text="Update Thorn" />
         <MenuDivider />
-        <MenuItem iconName="cog" text="Settings...">
-          <MenuItem iconName="add" text="Add new application" disabled={true} />
-          <MenuItem iconName="remove" text="Remove application" />
+        <MenuItem iconName="cog" text="Admin...">
+          <MenuItem iconName="graph" text="Settings" />
+          <MenuItem iconName="map" text="Edit Matching Zones" />
+          <MenuItem iconName="th" text="Edit Score" shouldDismissPopover={false} />
+          <MenuItem iconName="map" text="Import Ruleset" />
+          <MenuItem iconName="zoom-to-fit" text="Database Backups" disabled={true} />
         </MenuItem>
       </Menu>
     );
