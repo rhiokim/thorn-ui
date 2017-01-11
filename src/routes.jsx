@@ -8,7 +8,11 @@ import Articles from './containers/Articles';
 import Dashboard from './components/dashboard/Dashboard'
 import NewRule from './components/rules/NewRule'
 import Rules from './components/rules/Rules'
-import RuleSets from './components/rules/RuleSets'
+import RuleView from './components/rules/RuleView'
+import RuleEdit from './components/rules/RuleEdit'
+import RuleSets from './components/rulesets/RuleSets'
+import RuleSetView from './components/rulesets/RuleSetView'
+import RuleSetEdit from './components/rulesets/RuleSetEdit'
 import NewWhitelist from './components/rules/NewWhitelist'
 import Whitelists from './components/rules/Rules'
 import WhitelistSets from './components/rules/WhitelistSets'
@@ -25,7 +29,13 @@ export default (
     <Route path="rules">
       <IndexRoute component={Rules} />
       <Route path="new" component={NewRule} />
-      <Route path="sets" component={RuleSets} />
+      <Route path=":id" component={RuleView} />
+      <Route path=":id/edit" component={RuleEdit} />
+    </Route>
+    <Route path="rulesets">
+      <IndexRoute component={RuleSets} />
+      <Route path=":id" component={RuleSetView} />
+      <Route path=":id/edit" component={RuleSetEdit} />
     </Route>
     <Route path="whitelists">
       <IndexRoute component={Whitelists} />

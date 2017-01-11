@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, withRouter} from 'react-router'
 import {Menu, MenuDivider, MenuItem, Popover, Position} from "@blueprintjs/core"
 
-class Rules extends React.Component {
+class RuleSets extends React.Component {
   constructor() {
     super()
 
@@ -27,10 +27,10 @@ class Rules extends React.Component {
     const {ruleId} = this.state
     switch (act) {
       case 'view':
-        this.props.router.push(`/rules/${ruleId}`)
+        this.props.router.push(`/rulesets/${ruleId}`)
       break
       case 'edit':
-        this.props.router.push(`/rules/${ruleId}/edit`)
+        this.props.router.push(`/rulesets/${ruleId}/edit`)
       break
       default:
       break
@@ -41,7 +41,7 @@ class Rules extends React.Component {
     return (
       <div className="panel panel-flat">
         <div className="panel-heading">
-          <h5 className="panel-title">Rules<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
+          <h5 className="panel-title">Rule Sets<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
           <div className="heading-elements">
             <ul className="icons-list">
               <li><a data-action="collapse"></a></li>
@@ -59,19 +59,19 @@ class Rules extends React.Component {
           <table className="table table-bordered table-striped">
             <thead>
               <tr>
-                <th className="col-lg-1">SID</th>
-                <th className="col-lg-7">Message</th>
-                <th className="col-lg-3">Rule Set</th>
+                <th className="col-lg-3">Description</th>
+                <th className="col-lg-5">File</th>
+                <th className="col-lg-3">Updated</th>
                 <th className="col-lg-1"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>42000458</td>
-                <td>
-                  <Link to={`/rules/${Math.random()}`}>HTTPoxy - Attack</Link>
-                </td>
                 <td>APP_SERVER</td>
+                <td>
+                  <Link to={`/rulesets/${Math.random()}`}>app_server.rules</Link>
+                </td>
+                <td>3 months ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                     <a className="icon-menu9" onClick={() => this.setState({ruleId:Math.random()})}></a>
@@ -79,11 +79,11 @@ class Rules extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>42000457</td>
-                <td>
-                  <Link to="">Scanner/AttackBot GO-http-client 1.1</Link>
-                </td>
                 <td>BROWSER_ONLY</td>
+                <td>
+                  <Link to="">browser_only.rules</Link>
+                </td>
+                <td>2 weeks ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                     <a className="icon-menu9"></a>
@@ -91,11 +91,11 @@ class Rules extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>42000456</td>
-                <td>
-                  <Link to="">Scanner/AttackBot GO 1.1</Link>
-                </td>
                 <td>HONEYPOTS</td>
+                <td>
+                  <Link to="">honeypots.rules</Link>
+                </td>
+                <td>1 day ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                     <a className="icon-menu9"></a>
@@ -103,11 +103,11 @@ class Rules extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>42000455</td>
-                <td>
-                  <Link to="">possible XML/XXE-Exploitation atempt (Doctype)</Link>
-                </td>
                 <td>MALWARE</td>
+                <td>
+                  <Link to="">malware.rules</Link>
+                </td>
+                <td>34 seconds ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                     <a className="icon-menu9"></a>
@@ -115,11 +115,11 @@ class Rules extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>42000454</td>
-                <td>
-                  <Link to="">Possible Jenkins/Hudson RCE-Exploit (/script)</Link>
-                </td>
                 <td>IMPORT</td>
+                <td>
+                  <Link to="">import.rules</Link>
+                </td>
+                <td>12 hours ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                     <a className="icon-menu9"></a>
@@ -127,11 +127,11 @@ class Rules extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>42000453</td>
-                <td>
-                  <Link to="">WordPress XMLRPC Enumeration system.getCapabilities</Link>
-                </td>
                 <td>SCAN</td>
+                <td>
+                  <Link to="">scan.rules</Link>
+                </td>
+                <td>3 days ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                     <a className="icon-menu9"></a>
@@ -139,83 +139,11 @@ class Rules extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>42000452</td>
-                <td>
-                  <Link to="">WordPress XMLRPC Enumeration system.listMethods</Link>
-                </td>
                 <td>WEB_APPS</td>
-                <td className="text-center">
-                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9"></a>
-                  </Popover>
-                </td>
-              </tr>
-              <tr>
-                <td>42000452</td>
                 <td>
-                  <Link to="">---</Link>
+                  <Link to="">web_apps.rules</Link>
                 </td>
-                <td>WEB_SERVER</td>
-                <td className="text-center">
-                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9"></a>
-                  </Popover>
-                </td>
-              </tr>
-              <tr>
-                <td>42000451</td>
-                <td>
-                  <Link to="">---</Link>
-                </td>
-                <td>WEB_SERVER</td>
-                <td className="text-center">
-                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9"></a>
-                  </Popover>
-                </td>
-              </tr>
-              <tr>
-                <td>42000450</td>
-                <td>
-                  <Link to="">---</Link>
-                </td>
-                <td>WEB_SERVER</td>
-                <td className="text-center">
-                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9"></a>
-                  </Popover>
-                </td>
-              </tr>
-              <tr>
-                <td>42000449</td>
-                <td>
-                  <Link to="">---</Link>
-                </td>
-                <td>WEB_SERVER</td>
-                <td className="text-center">
-                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9"></a>
-                  </Popover>
-                </td>
-              </tr>
-              <tr>
-                <td>42000448</td>
-                <td>
-                  <Link to="">---</Link>
-                </td>
-                <td>WEB_SERVER</td>
-                <td className="text-center">
-                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9"></a>
-                  </Popover>
-                </td>
-              </tr>
-              <tr>
-                <td>42000447</td>
-                <td>
-                  <Link to="">---</Link>
-                </td>
-                <td>WEB_SERVER</td>
+                <td>39 years ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                     <a className="icon-menu9"></a>
@@ -247,4 +175,4 @@ class Rules extends React.Component {
   }
 }
 
-export default withRouter(Rules)
+export default withRouter(RuleSets)
