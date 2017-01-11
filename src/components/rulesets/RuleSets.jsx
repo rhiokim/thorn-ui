@@ -1,13 +1,16 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router'
-import {Menu, MenuDivider, MenuItem, Popover, Position} from "@blueprintjs/core"
+import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, Intent} from "@blueprintjs/core"
 
 class RuleSets extends React.Component {
   constructor() {
     super()
 
+    this.toggleDialog = this.toggleDialog.bind(this)
+
     this.state = {
-      ruleId: undefined
+      ruleSetId: undefined,
+      isOpen: false
     }
   }
 
@@ -23,14 +26,25 @@ class RuleSets extends React.Component {
     </Menu>
   )
 
+  toggleDialog() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
   handleClick(act) {
-    const {ruleId} = this.state
+    const {ruleSetId} = this.state
     switch (act) {
       case 'view':
-        this.props.router.push(`/rulesets/${ruleId}`)
+        this.props.router.push(`/rulesets/${ruleSetId}`)
       break
       case 'edit':
-        this.props.router.push(`/rulesets/${ruleId}/edit`)
+        this.props.router.push(`/rulesets/edit/${ruleSetId}`)
+      break
+      case 'deactivate':
+      break
+      case 'delete':
+        this.setState({ isOpen: true })
       break
       default:
       break
@@ -74,7 +88,7 @@ class RuleSets extends React.Component {
                 <td>3 months ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9" onClick={() => this.setState({ruleId:Math.random()})}></a>
+                    <a className="icon-menu9" onClick={() => this.setState({ruleSetId: Math.random()})}></a>
                   </Popover>
                 </td>
               </tr>
@@ -169,6 +183,18 @@ class RuleSets extends React.Component {
               <li><a href="#" className="legitRipple">›</a></li>
             </ul>
           </div>
+
+          <Dialog iconName="inbox" isOpen={this.state.isOpen} onClose={this.toggleDialog} title="Remove Rule">
+            <div className="pt-dialog-body">
+              Are you sure remove this rule? You can't restore this rule after delete.
+            </div>
+            <div className="pt-dialog-footer">
+              <div className="pt-dialog-footer-actions">
+                <Button text="No" />
+                <Button intent={Intent.PRIMARY} onClick={this.toggleDialog} text="Sure" />
+              </div>
+            </div>
+          </Dialog>
         </div>
       </div>
     )

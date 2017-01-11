@@ -30,12 +30,12 @@ export default (
       <IndexRoute component={Rules} />
       <Route path="new" component={NewRule} />
       <Route path=":id" component={RuleView} />
-      <Route path=":id/edit" component={RuleEdit} />
+      <Route path="edit/:id" component={RuleEdit} />
     </Route>
     <Route path="rulesets">
       <IndexRoute component={RuleSets} />
       <Route path=":id" component={RuleSetView} />
-      <Route path=":id/edit" component={RuleSetEdit} />
+      <Route path="edit/:id" component={RuleSetEdit} />
     </Route>
     <Route path="whitelists">
       <IndexRoute component={Whitelists} />

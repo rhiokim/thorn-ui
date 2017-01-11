@@ -14,6 +14,7 @@ import './assets/_main/bootstrap.less';
 import './assets/_main/core.less';
 import './assets/_main/components.less';
 import './assets/_main/colors.less';
+import './assets/css/main.css';
 // import './assets/sass/_.scss';
 
 import routes from './routes';

@@ -1,13 +1,16 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router'
-import {Menu, MenuDivider, MenuItem, Popover, Position} from "@blueprintjs/core"
+import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, Intent} from "@blueprintjs/core"
 
 class Rules extends React.Component {
   constructor() {
     super()
 
+    this.toggleDialog = this.toggleDialog.bind(this)
+
     this.state = {
-      ruleId: undefined
+      ruleId: undefined,
+      isOpen: false
     }
   }
 
@@ -23,6 +26,12 @@ class Rules extends React.Component {
     </Menu>
   )
 
+  toggleDialog() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
   handleClick(act) {
     const {ruleId} = this.state
     switch (act) {
@@ -30,7 +39,12 @@ class Rules extends React.Component {
         this.props.router.push(`/rules/${ruleId}`)
       break
       case 'edit':
-        this.props.router.push(`/rules/${ruleId}/edit`)
+        this.props.router.push(`/rules/edit/${ruleId}`)
+      break
+      case 'deactivate':
+      break
+      case 'delete':
+        this.setState({ isOpen: true })
       break
       default:
       break
@@ -241,6 +255,18 @@ class Rules extends React.Component {
               <li><a href="#" className="legitRipple">›</a></li>
             </ul>
           </div>
+
+          <Dialog iconName="inbox" isOpen={this.state.isOpen} onClose={this.toggleDialog} title="Remove Rule">
+            <div className="pt-dialog-body">
+              Are you sure remove this rule? You can't restore this rule after delete.
+            </div>
+            <div className="pt-dialog-footer">
+              <div className="pt-dialog-footer-actions">
+                <Button text="No" />
+                <Button intent={Intent.PRIMARY} onClick={this.toggleDialog} text="Sure" />
+              </div>
+            </div>
+          </Dialog>
         </div>
       </div>
     )
