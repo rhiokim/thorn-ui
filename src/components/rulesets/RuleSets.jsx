@@ -56,7 +56,7 @@ class RuleSets extends React.Component {
       <div className="panel panel-flat">
         <div className="panel-heading">
           <h5 className="panel-title">Rule Sets<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
-          <div className="heading-elements">
+          <div className="heading-elements hidden">
             <ul className="icons-list">
               <li><a data-action="collapse"></a></li>
               <li><a data-action="reload"></a></li>

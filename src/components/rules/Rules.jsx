@@ -1,16 +1,18 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router'
-import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, Intent} from "@blueprintjs/core"
+import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, Intent, Alert} from "@blueprintjs/core"
 
 class Rules extends React.Component {
   constructor() {
     super()
 
     this.toggleDialog = this.toggleDialog.bind(this)
+    this.toggleDeactivateAlert = this.toggleDeactivateAlert.bind(this)
 
     this.state = {
       ruleId: undefined,
-      isOpen: false
+      isOpen: false,
+      isDeactivateAlert: false
     }
   }
 
@@ -32,6 +34,12 @@ class Rules extends React.Component {
     })
   }
 
+  toggleDeactivateAlert() {
+    this.setState({
+      isDeactivateAlert: !this.state.isDeactivateAlert
+    })
+  }
+
   handleClick(act) {
     const {ruleId} = this.state
     switch (act) {
@@ -42,6 +50,7 @@ class Rules extends React.Component {
         this.props.router.push(`/rules/edit/${ruleId}`)
       break
       case 'deactivate':
+        this.setState({ isDeactivateAlert: true })
       break
       case 'delete':
         this.setState({ isOpen: true })
@@ -56,7 +65,7 @@ class Rules extends React.Component {
       <div className="panel panel-flat">
         <div className="panel-heading">
           <h5 className="panel-title">Rules<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
-          <div className="heading-elements">
+          <div className="heading-elements hidden">
             <ul className="icons-list">
               <li><a data-action="collapse"></a></li>
               <li><a data-action="reload"></a></li>
@@ -258,15 +267,17 @@ class Rules extends React.Component {
 
           <Dialog iconName="inbox" isOpen={this.state.isOpen} onClose={this.toggleDialog} title="Remove Rule">
             <div className="pt-dialog-body">
-              Are you sure remove this rule? You can't restore this rule after delete.
+              Are you sure remove this rule?<br/>You can't restore this rule after delete.
             </div>
             <div className="pt-dialog-footer">
               <div className="pt-dialog-footer-actions">
                 <Button text="No" />
-                <Button intent={Intent.PRIMARY} onClick={this.toggleDialog} text="Sure" />
+                <Button intent={Intent.DANGER} onClick={this.toggleDialog} text="Sure" />
               </div>
             </div>
           </Dialog>
+
+          <Alert isOpen={this.state.isDeactivateAlert} onConfirm={this.toggleDeactivateAlert} onCancel={this.toggleDeactivateAlert} confirmButtonText="Confirm" cancelButtonText="No" intent={Intent.WARNING} >Are you sure deactivate this rule?</Alert>
         </div>
       </div>
     )
