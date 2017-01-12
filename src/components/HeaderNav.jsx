@@ -3,7 +3,6 @@ import {Link, withRouter} from 'react-router'
 import {Menu, MenuDivider, MenuItem, Popover, Position} from "@blueprintjs/core"
 
 import logo from '../assets/images/logo_dark.png'
-import profile from '../assets/images/image.png'
 
 class HeaderNav extends React.Component {
 
@@ -47,6 +46,7 @@ class HeaderNav extends React.Component {
       <Menu>
         <MenuItem iconName="add" text="New Rule" onClick={this.handleClick.bind(this, 'new-rule')}/>
         <MenuItem iconName="map" text="New Whitelist" onClick={this.handleClick.bind(this, 'new-wl')} />
+        <MenuItem iconName="map" text="Import Rule Set" onClick={this.handleClick.bind(this, 'import-rules')} />
         <MenuDivider />
         <MenuItem iconName="add" text="Manage port forwarding" onClick={this.handleClick.bind(this, 'new-port')} />
         <MenuItem iconName="map" text="Manage iptable" onClick={this.handleClick.bind(this, 'new-iptable')} />
@@ -57,7 +57,7 @@ class HeaderNav extends React.Component {
       <div className="navbar">
         <nav className="pt-navbar">
           <div className="pt-navbar-group pt-align-left">
-            <div className="pt-navbar-heading"><img src={logo} width="60%" /></div>
+            <div className="pt-navbar-heading"><img src={logo} width="60%" alt=""/></div>
           </div>
           <div className="pt-navbar-group pt-align-right">
             <Link to="/" className="pt-button pt-minimal pt-icon-home">Home</Link>

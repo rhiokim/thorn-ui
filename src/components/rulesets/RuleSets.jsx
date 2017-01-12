@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router'
-import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, Intent} from "@blueprintjs/core"
+import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, AnchorButton, Intent} from "@blueprintjs/core"
 
 class RuleSets extends React.Component {
   constructor() {
@@ -10,18 +10,20 @@ class RuleSets extends React.Component {
 
     this.state = {
       ruleSetId: undefined,
+      ruleSetFile: undefined,
       isOpen: false
     }
   }
 
   ruleMenu = (
     <Menu>
-      <MenuItem iconName="add" text="View" onClick={this.handleClick.bind(this, 'view')} />
+      <MenuItem iconName="add" text="View" onClick={this.handleClick.bind(this, 'view')}/>
+      <MenuItem iconName="add" text="Rules" onClick={this.handleClick.bind(this, 'rules')} />
       <MenuItem iconName="add" text="Edit" onClick={this.handleClick.bind(this, 'edit')}/>
-      <MenuItem iconName="map" text="Clone" disabled={true} onClick={this.handleClick.bind(this, 'copy')} />
+      <MenuItem iconName="map" text="Plan" disabled={true} onClick={this.handleClick.bind(this, 'copy')} />
       <MenuItem iconName="map" text="Copy to Clipboard" disabled={true} onClick={this.handleClick.bind(this, 'copy')} />
       <MenuDivider />
-      <MenuItem iconName="add" text="Deactivate" onClick={this.handleClick.bind(this, 'deactivate')} />
+      <MenuItem iconName="add" text="Export Rules" onClick={this.handleClick.bind(this, 'deactivate')} />
       <MenuItem iconName="map" text="Delete" onClick={this.handleClick.bind(this, 'delete')} />
     </Menu>
   )
@@ -33,8 +35,11 @@ class RuleSets extends React.Component {
   }
 
   handleClick(act) {
-    const {ruleSetId} = this.state
+    const {ruleSetId, ruleSetFile} = this.state
     switch (act) {
+      case 'rules':
+        this.props.router.push(`/rules/sets/${ruleSetFile}`)
+      break
       case 'view':
         this.props.router.push(`/rulesets/${ruleSetId}`)
       break
@@ -56,12 +61,8 @@ class RuleSets extends React.Component {
       <div className="panel panel-flat">
         <div className="panel-heading">
           <h5 className="panel-title">Rule Sets<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
-          <div className="heading-elements hidden">
-            <ul className="icons-list">
-              <li><a data-action="collapse"></a></li>
-              <li><a data-action="reload"></a></li>
-              <li><a data-action="close"></a></li>
-            </ul>
+          <div className="heading-elements">
+            <AnchorButton href="#/rulesets/new" text="New" iconName="add" intent={Intent.PRIMARY}/>
           </div>
         </div>
 
@@ -88,7 +89,7 @@ class RuleSets extends React.Component {
                 <td>3 months ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9" onClick={() => this.setState({ruleSetId: Math.random()})}></a>
+                    <a className="icon-menu9" onClick={() => this.setState({ruleSetFile: 'app_server.rules'})}></a>
                   </Popover>
                 </td>
               </tr>
@@ -184,14 +185,14 @@ class RuleSets extends React.Component {
             </ul>
           </div>
 
-          <Dialog iconName="inbox" isOpen={this.state.isOpen} onClose={this.toggleDialog} title="Remove Rule">
+          <Dialog iconName="inbox" isOpen={this.state.isOpen} onClose={this.toggleDialog} title="Remove Ruleset">
             <div className="pt-dialog-body">
-              Are you sure remove this rule? You can't restore this rule after delete.
+              Are you sure remove this ruleset?<br/>You can't restore this ruleset after delete.
             </div>
             <div className="pt-dialog-footer">
               <div className="pt-dialog-footer-actions">
                 <Button text="No" />
-                <Button intent={Intent.PRIMARY} onClick={this.toggleDialog} text="Sure" />
+                <Button intent={Intent.DANGER} onClick={this.toggleDialog} text="Sure" />
               </div>
             </div>
           </Dialog>

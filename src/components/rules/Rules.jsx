@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router'
-import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, Intent, Alert} from "@blueprintjs/core"
+import {Menu, MenuDivider, MenuItem, Popover, Position, Dialog, Button, AnchorButton, Intent, Alert} from "@blueprintjs/core"
 
 class Rules extends React.Component {
   constructor() {
@@ -27,6 +27,16 @@ class Rules extends React.Component {
       <MenuItem iconName="map" text="Delete" onClick={this.handleClick.bind(this, 'delete')} />
     </Menu>
   )
+
+  componentWillMount() {
+    const {ruleSetFile} = this.props.params
+
+    if (this.props.params.hasOwnProperty('ruleSetFile')) {
+      console.log(`display rules of ${ruleSetFile}`)
+    } else {
+      console.log('all rules')
+    }
+  }
 
   toggleDialog() {
     this.setState({
@@ -65,12 +75,8 @@ class Rules extends React.Component {
       <div className="panel panel-flat">
         <div className="panel-heading">
           <h5 className="panel-title">Rules<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
-          <div className="heading-elements hidden">
-            <ul className="icons-list">
-              <li><a data-action="collapse"></a></li>
-              <li><a data-action="reload"></a></li>
-              <li><a data-action="close"></a></li>
-            </ul>
+          <div className="heading-elements">
+            <AnchorButton href="#/rules/new" text="New" iconName="add" intent={Intent.PRIMARY}/>
           </div>
         </div>
 

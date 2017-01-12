@@ -29,11 +29,13 @@ export default (
     <Route path="rules">
       <IndexRoute component={Rules} />
       <Route path="new" component={NewRule} />
+      <Route path="sets/:ruleSetFile" component={Rules} />
       <Route path=":id" component={RuleView} />
       <Route path="edit/:id" component={RuleEdit} />
     </Route>
     <Route path="rulesets">
       <IndexRoute component={RuleSets} />
+      <Route path="new" component={RuleSetEdit} />
       <Route path=":id" component={RuleSetView} />
       <Route path="edit/:id" component={RuleSetEdit} />
     </Route>

@@ -15,6 +15,7 @@ export default class NewRule extends React.Component {
   }
 
   render() {
+    const {goBack} = this.props.router
     return (
       <div className="panel panel-flat">
         <div className="panel-heading">
@@ -156,7 +157,8 @@ export default class NewRule extends React.Component {
               </div>
             </fieldset>
             <div className="text-right">
-              <Button className="pt-intent-primary" iconName="add" text="Save" />
+              <Button className="pt-intent" iconName="add" text="Cancel" onClick={goBack} />
+              <Button className="pt-intent-primary ml-5" iconName="add" text="Save" />
             </div>
           </form>
         </div>

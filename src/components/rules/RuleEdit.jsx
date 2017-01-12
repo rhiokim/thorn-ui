@@ -1,7 +1,8 @@
 import React from 'react'
-import {Checkbox, Button} from '@blueprintjs/core'
+import {withRouter} from 'react-router'
+import {Checkbox, Button, EditableText} from '@blueprintjs/core'
 
-export default class RuleEdit extends React.Component {
+class RuleEdit extends React.Component {
   constructor() {
     super()
 
@@ -15,6 +16,7 @@ export default class RuleEdit extends React.Component {
   }
 
   render() {
+    const {goBack} = this.props.router
     return (
       <div className="panel panel-flat">
         <div className="panel-heading">
@@ -137,7 +139,7 @@ export default class RuleEdit extends React.Component {
               <div className="form-group">
                 <label className="control-label col-lg-2">Remarks</label>
                 <div className="col-lg-10">
-                  <textarea className="pt-input pt-fill"  dir="auto"></textarea>
+                  <EditableText className="pt-input pt-fill" multiline minLines={3} maxLines={12} defaultValue="" dir="auto"></EditableText>
                 </div>
               </div>
               <div className="form-group">
@@ -156,7 +158,8 @@ export default class RuleEdit extends React.Component {
               </div>
             </fieldset>
             <div className="text-right">
-              <Button className="pt-intent-primary" iconName="add" text="Save" />
+              <Button className="pt-intent" iconName="add" text="Cancel" onClick={goBack}/>
+              <Button className="pt-intent-primary ml-5" iconName="add" text="Save" />
             </div>
           </form>
         </div>
@@ -164,3 +167,5 @@ export default class RuleEdit extends React.Component {
     )
   }
 }
+
+export default withRouter(RuleEdit)
