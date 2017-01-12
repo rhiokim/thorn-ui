@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class NewIPTable extends React.Component {
   render() {
-    return(
+    return (
       <div>new iptable</div>
     )
   }

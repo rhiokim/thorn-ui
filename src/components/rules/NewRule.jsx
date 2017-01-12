@@ -15,7 +15,7 @@ export default class NewRule extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className="panel panel-flat">
         <div className="panel-heading">
           <h5 className="panel-title">New Rule<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>

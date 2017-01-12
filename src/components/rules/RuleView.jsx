@@ -6,7 +6,7 @@ export default class RuleView extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>rule view</div>
     )
   }

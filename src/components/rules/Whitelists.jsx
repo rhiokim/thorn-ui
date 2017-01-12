@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class Whitelist extends React.Component {
   render() {
-    return(
+    return (
       <div>whitelist</div>
     )
   }

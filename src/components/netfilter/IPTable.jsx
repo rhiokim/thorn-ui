@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class IPTable extends React.Component {
   render() {
-    return(
+    return (
       <div>iptable</div>
     )
   }

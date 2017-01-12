@@ -6,7 +6,7 @@ export default class RuleSetView extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>ruleset view</div>
     )
   }

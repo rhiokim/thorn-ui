@@ -6,7 +6,7 @@ export default class RuleSetEdit extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>ruleset edit</div>
     )
   }
