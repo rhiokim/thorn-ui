@@ -9,7 +9,7 @@ export default class WhitelistSetView extends React.Component {
     return (
       <div className="panel panel-flat">
         <div className="panel-heading">
-          <h5 className="panel-title">APP_SERVER Ruleset in Details<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
+          <h5 className="panel-title">XXX Whitelist Set in Details<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
           <div className="heading-elements hidden">
             <ul className="icons-list">
               <li><a data-action="collapse"></a></li>

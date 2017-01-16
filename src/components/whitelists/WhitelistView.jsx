@@ -34,10 +34,11 @@ class WhitelistView extends React.Component {
 
   render() {
     const {goBack} = this.props.router
+    const {id} = this.props.params
     return (
       <div className="panel panel-flat">
         <div className="panel-heading">
-          <h5 className="panel-title">Rule<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
+          <h5 className="panel-title">Whitelist<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
           <div className="heading-elements hidden">
             <AnchorButton href="#/rules/" text="Edit" iconName="add" intent={Intent.DEFAULT}/>
           </div>
@@ -45,7 +46,7 @@ class WhitelistView extends React.Component {
 
         <div className="panel-body">
           <p>
-            MainRule "rx:.*" "msg:HTTPoxy - Attack " "mz:$HEADERS_VAR:Proxy" "s:$ATTACK:8" id:42000458 ;
+            BasicRule wl:1000 "mz:$URL_X:^/foo|$ARGS_VAR_X:^[0-9]";
           </p>
 
           <div className="text-left">
@@ -54,7 +55,7 @@ class WhitelistView extends React.Component {
             <Button className="pull-left mr-5" intent={Intent.DANGER} iconName="add" text="Delete" onClick={() => this.setState({ isOpen: true })} />
             <Button className="pull-left" intent={Intent.WARNING} iconName="add" text="Deactivate" onClick={() => this.setState({ isDeactivateAlert: true })} />
             <Button intent={Intent.DEFAULT} iconName="add" text="Cancel" onClick={goBack}/>
-            <Button className="ml-5" intent={Intent.PRIMARY}  iconName="add" text="Edit" />
+            <AnchorButton intent={Intent.PRIMARY} href={`#/whitelists/edit/${id}`} className="ml-5" text="Edit" iconName="add"/>
           </div>
         </div>
 

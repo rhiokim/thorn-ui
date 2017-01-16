@@ -6,16 +6,20 @@ import Users from './containers/Users';
 import Articles from './containers/Articles';
 
 import Dashboard from './components/dashboard/Dashboard'
-import NewRule from './components/rules/NewRule'
+import RuleCreate from './components/rules/RuleCreate'
 import Rules from './components/rules/Rules'
 import RuleView from './components/rules/RuleView'
 import RuleEdit from './components/rules/RuleEdit'
 import RuleSets from './components/rulesets/RuleSets'
 import RuleSetView from './components/rulesets/RuleSetView'
 import RuleSetEdit from './components/rulesets/RuleSetEdit'
-import NewWhitelist from './components/rules/NewWhitelist'
-import Whitelists from './components/rules/Rules'
-import WhitelistSets from './components/rules/WhitelistSets'
+import Whitelists from './components/whitelists/Whitelists'
+import WhitelistView from './components/whitelists/WhitelistView'
+import WhitelistEdit from './components/whitelists/WhitelistEdit'
+import WhitelistCreate from './components/whitelists/WhitelistCreate'
+import WhitelistSets from './components/whitelistsets/WhitelistSets'
+import WhitelistSetEdit from './components/whitelistsets/WhitelistSetEdit'
+import WhitelistSetView from './components/whitelistsets/WhitelistSetView'
 import PortForwarding from './components/netfilter/PortForwarding'
 import IPTable from './components/netfilter/IPTable'
 import NewIPTable from './components/netfilter/NewIPTable'
@@ -28,7 +32,7 @@ export default (
     <Route path="articles" component={Articles} />
     <Route path="rules">
       <IndexRoute component={Rules} />
-      <Route path="new" component={NewRule} />
+      <Route path="new" component={RuleCreate} />
       <Route path="sets/:ruleSetFile" component={Rules} />
       <Route path=":id" component={RuleView} />
       <Route path="edit/:id" component={RuleEdit} />
@@ -41,8 +45,16 @@ export default (
     </Route>
     <Route path="whitelists">
       <IndexRoute component={Whitelists} />
-      <Route path="new" component={NewWhitelist} />
-      <Route path="sets" component={WhitelistSets} />
+      <Route path="new" component={WhitelistCreate} />
+      <Route path="sets/:ruleSetFile" component={Whitelists} />
+      <Route path=":id" component={WhitelistView} />
+      <Route path="edit/:id" component={WhitelistEdit} />
+    </Route>
+    <Route path="whitelistsets">
+      <IndexRoute component={WhitelistSets} />
+      <Route path="new" component={WhitelistSetEdit} />
+      <Route path=":id" component={WhitelistSetView} />
+      <Route path="edit/:id" component={WhitelistSetEdit} />
     </Route>
     <Route path="netfilter">
       <Route path="ports">

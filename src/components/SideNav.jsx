@@ -38,7 +38,7 @@ export default class SideNav extends React.Component {
                     <li><Link to="/rulesets">Rule Sets</Link></li>
                     <li className="navigation-divider"></li>
                     <li><Link to="/whitelists">Whitelist</Link></li>
-                    <li><Link to="/whitelists/sets">Whitelist Sets</Link></li>
+                    <li><Link to="/whitelistsets">Whitelist Sets</Link></li>
                   </ul>
                 </li>
                 <li>

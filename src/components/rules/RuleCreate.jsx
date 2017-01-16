@@ -1,7 +1,7 @@
 import React from 'react'
 import {Checkbox, Button, EditableText} from '@blueprintjs/core'
 
-export default class NewRule extends React.Component {
+export default class RuleCreate extends React.Component {
   constructor() {
     super()
 
