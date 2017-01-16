@@ -1,5 +1,5 @@
 import React from 'react'
-import {Checkbox, Button} from '@blueprintjs/core'
+import {Checkbox, Button, EditableText} from '@blueprintjs/core'
 
 export default class NewRule extends React.Component {
   constructor() {
@@ -138,7 +138,7 @@ export default class NewRule extends React.Component {
               <div className="form-group">
                 <label className="control-label col-lg-2">Remarks</label>
                 <div className="col-lg-10">
-                  <textarea className="pt-input pt-fill"  dir="auto"></textarea>
+                  <EditableText className="pt-input pt-fill" multiline minLines={3} maxLines={12} defaultValue="" dir="auto"></EditableText>
                 </div>
               </div>
               <div className="form-group">

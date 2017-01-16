@@ -2,7 +2,7 @@ import React from 'react'
 import {withRouter} from 'react-router'
 import {Button, AnchorButton, Dialog, Alert, Intent} from '@blueprintjs/core'
 
-class RuleView extends React.Component {
+class WhitelistView extends React.Component {
   constructor() {
     super()
 
@@ -45,7 +45,7 @@ class RuleView extends React.Component {
 
         <div className="panel-body">
           <p>
-            MainRule "str:w3af.sourceforge.net" "msg:DN SCAN w3af User Agent" "mz:$HEADERS_VAR:User-Agent" "s:$UWA:8" id:42000041;
+            MainRule "rx:.*" "msg:HTTPoxy - Attack " "mz:$HEADERS_VAR:Proxy" "s:$ATTACK:8" id:42000458 ;
           </p>
 
           <div className="text-left">
@@ -76,4 +76,4 @@ class RuleView extends React.Component {
   }
 }
 
-export default withRouter(RuleView)
+export default withRouter(WhitelistView)

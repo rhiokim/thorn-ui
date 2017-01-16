@@ -32,105 +32,72 @@ export default class RuleSetView extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 on all url in GET argument named foo:</span>
+                  <span className="text-muted"># Blocking "bad" user agents</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$ARGS_VAR:foo";</span>
+                  <span className="text-semibold">MainRule "str:w3af.sourceforge.net" "msg:DN SCAN w3af User Agent" "mz:$HEADERS_VAR:User-Agent" "s:$UWA:8" id:42000041;</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in GET argument named foo for url /bar:</span>
+                  <span className="text-muted"># Blocking "bad" referers</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$ARGS_VAR:foo|$URL:/bar";</span>
+                  <span className="text-semibold">BasicRule "str:http://www.shadowysite.com/" "msg:Bad referer" "mz:$HEADERS_VAR:referer" "s:DROP" id:20001;</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in all GET arguments for url /bar:</span>
+                  <span className="text-muted"># Blocking dangerous directories</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$URL:/bar|ARGS";</span>
+                  <span className="text-semibold">MainRule "str:/magmi/" "msg:Access to magmi folder" "mz:URL" "s:$UWA:8" id:42000400;</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in all GET argument NAMES (only name, not content):</span>
+                  <span className="text-muted"># Blocking dangerous directories</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:ARGS|NAME";</span>
+                  <span className="text-semibold">MainRule "str:/magmi.php" "msg:Access to magmi.php" "mz:URL" "s:$UWA:8" id:42000401;</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in all GET argument NAMES (only name, not content) for url /bar:</span>
+                  <span className="text-muted"># Simple/Generic XSS</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$URL:/bar|ARGS|NAME";</span>
+                  <span className="text-semibold">MainRule id:4242 "str:&lt;" "msg:xss (angle bracket)" "mz:$ARGS_VAR:foo|$URL:/target" s:DROP;</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in all GET arguments containing meh:</span>
+                  <span className="text-muted"># Simple/Generic (wider) XSS</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$ARGS_VAR_X:meh";</span>
+                  <span className="text-semibold">MainRule id:4242 "str:&lt;" "msg:xss (angle bracket)" "mz:$ARGS_VAR_X:^foo$|$URL_X:^/product/[0-9]+/product$" s:DROP;</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in GET argument starting with meh:</span>
+                  <span className="text-muted"># Simple/Generic File Upload</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$ARGS_VAR_X:^meh";</span>
+                  <span className="text-semibold">MainRule "rx:\.ph|\.asp|\.ht" "msg:asp/php file upload!" "mz:FILE_EXT" "s:$UPLOAD:8" id:1500;</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in all GET arguments matching meh_&lt;number&gt;:</span>
+                  <span className="text-muted"># Raw Body</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$ARGS_VAR_X:^meh_[0-9]+$"</span>
+                  <span className="text-semibold">MainRule "id:4241" "s:DROP" "str:RANDOMTHINGS" "mz:RAW_BODY";</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in all GET arguments for URL starting with /foo:</span>
+                  <span className="text-muted"># LibInjection (XSS) Virtual Patching</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$URL_X:^/foo|ARGS";</span>
+                  <span className="text-semibold">MainRule "id:4241" "s:DROP" "d:libinj_xss" "mz:$ARGS_VAR:foo";</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Disable rule #1000 in all GET arguments starting with a number for URL starting with /foo:</span>
+                  <span className="text-muted"># LibInjection (SQL) Virtual Patching</span>
                   <br/>
-                  <span className="text-semibold">BasicRule wl:1000 "mz:$URL_X:^/foo|$ARGS_VAR_X:^[0-9]";</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="text-muted"># Whitelisting rule 1337 on URL /index.html for file name will be written :</span>
-                  <br/>
-                  <span className="text-semibold">BasicRule wl:1337 "mz:$URL:/index.html|FILE_EXT";</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="text-muted"># JSON is handled as normal BODY, and parsed into variable when possible :</span>
-                  <br/>
-                  <span className="text-semibold">BasicRule wl:1302 "mz:$BODY_VAR:lol";</span>
-                </td>
-              </tr>
-              <tr>
-                <th className="active">
-                  MainRule
-                </th>
-              </tr>
-              <tr>
-                <td>
-                  <span className="text-muted"># With the following rule targeting RAW_BODY :</span>
-                  <br/>
-                  <span className="text-semibold">MainRule id:4241 s:DROP str:RANDOMTHINGS mz:RAW_BODY;</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="text-muted"># Whitelisting id:4241 would be :</span>
-                  <br/>
-                  <span className="text-semibold">BasicRule wl:4241 "mz:$URL:/|BODY";</span>
+                  <span className="text-semibold">MainRule "id:4241" "s:DROP" "d:libinj_sql" "mz:$ARGS_VAR:foo";</span>
                 </td>
               </tr>
             </tbody>
