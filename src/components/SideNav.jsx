@@ -42,10 +42,16 @@ export default class SideNav extends React.Component {
                   </ul>
                 </li>
                 <li>
-                  <Link to="/netfilter"><i className="icon-home4"></i> <span>Netfilter</span></Link>
+                  <Link to="/iptables"><i className="icon-home4"></i> <span>Netfilter</span></Link>
                   <ul>
-                    <li><Link to="/netfilter/ports">port forwarding</Link></li>
-                    <li><Link to="/netfilter/iptable">iptable</Link></li>
+                    <li><Link to="/iptables/forwarding">Forwarding</Link></li>
+                  </ul>
+                </li>
+                <li>
+                  <Link to="/security"><i className="icon-home4"></i> <span>Security</span></Link>
+                  <ul>
+                    <li><Link to="/security/basic">Basic Security</Link></li>
+                    <li><Link to="/security/advanced">Advanced Security</Link></li>
                   </ul>
                 </li>
                 <li><a href="../changelog.html"><i className="icon-list-unordered"></i> <span>Settings</span></a></li>

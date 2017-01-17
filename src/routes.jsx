@@ -20,10 +20,11 @@ import WhitelistCreate from './components/whitelists/WhitelistCreate'
 import WhitelistSets from './components/whitelistsets/WhitelistSets'
 import WhitelistSetEdit from './components/whitelistsets/WhitelistSetEdit'
 import WhitelistSetView from './components/whitelistsets/WhitelistSetView'
-import PortForwarding from './components/netfilter/PortForwarding'
-import IPTable from './components/netfilter/IPTable'
-import NewIPTable from './components/netfilter/NewIPTable'
-import NewPort from './components/netfilter/NewPort'
+import IPTable from './components/iptables/IPTable'
+import IPTableCreate from './components/iptables/IPTableCreate'
+import Forwarding from './components/iptables/Forwarding'
+import ForwardingCreate from './components/iptables/ForwardingCreate'
+import ForwardingEdit from './components/iptables/ForwardingEdit'
 
 export default (
   <Route path="/" component={App}>
@@ -56,15 +57,15 @@ export default (
       <Route path=":id" component={WhitelistSetView} />
       <Route path="edit/:id" component={WhitelistSetEdit} />
     </Route>
-    <Route path="netfilter">
-      <Route path="ports">
-        <IndexRoute component={PortForwarding} />
-        <Route path="new" component={NewPort} />
-      </Route>
-      <Route path="iptable">
-        <IndexRoute component={IPTable} />
-        <Route path="new" component={NewIPTable} />
-      </Route>
+    <Route path="iptables">
+      <IndexRoute component={IPTable} />
+      <Route path="new" component={IPTableCreate} />
+      <Route path="forwarding" component={Forwarding} />
+    </Route>
+    <Route path="forward">
+      <IndexRoute component={Forwarding} />
+      <Route path="new" component={ForwardingCreate} />
+      <Route path="edit/:id" component={ForwardingEdit} />
     </Route>
   </Route>
 );

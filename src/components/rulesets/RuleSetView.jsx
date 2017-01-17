@@ -74,13 +74,6 @@ export default class RuleSetView extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <span className="text-muted"># Simple/Generic File Upload</span>
-                  <br/>
-                  <span className="text-semibold">MainRule "rx:\.ph|\.asp|\.ht" "msg:asp/php file upload!" "mz:FILE_EXT" "s:$UPLOAD:8" id:1500;</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
                   <span className="text-muted"># Raw Body</span>
                   <br/>
                   <span className="text-semibold">MainRule "id:4241" "s:DROP" "str:RANDOMTHINGS" "mz:RAW_BODY";</span>

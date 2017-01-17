@@ -10,10 +10,14 @@ import {syncHistoryWithStore} from 'react-router-redux';
 // import './assets/css/normalize.css';
 import '@blueprintjs/core/dist/blueprint.css';
 import './assets/css/icomoon/styles.css';
-import './assets/_main/bootstrap.less';
-import './assets/_main/core.less';
-import './assets/_main/components.less';
-import './assets/_main/colors.less';
+import './assets/prebuilt/bootstrap.css'
+import './assets/prebuilt/core.css'
+import './assets/prebuilt/components.css'
+import './assets/prebuilt/colors.css'
+// import './assets/_main/bootstrap.less';
+// import './assets/_main/core.less';
+// import './assets/_main/components.less';
+// import './assets/_main/colors.less';
 import './assets/css/main.css';
 // import './assets/sass/_.scss';
 
