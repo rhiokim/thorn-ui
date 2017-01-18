@@ -25,10 +25,10 @@ export default class SideNav extends React.Component {
                 <li>
                   <Link to="/"><i className="icon-home4"></i> <span>Dashboard</span></Link>
                   <ul>
-                    <li><Link to="/">Statistics</Link></li>
-                    <li><Link to="/">Log Analysis</Link></li>
-                    <li><Link to="/">Alerts</Link></li>
-                    <li><Link to="/">Status</Link></li>
+                    <li><Link to="/statistics">Statistics</Link></li>
+                    <li><Link to="/log">Log</Link></li>
+                    <li><Link to="/alert">Alerts</Link></li>
+                    <li><Link to="/status">Status</Link></li>
                   </ul>
                 </li>
                 <li>

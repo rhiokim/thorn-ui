@@ -6,6 +6,10 @@ import Users from './containers/Users';
 import Articles from './containers/Articles';
 
 import Dashboard from './components/dashboard/Dashboard'
+import Statistics from './components/dashboard/Statistics'
+import Alert from './components/dashboard/Alert'
+import Log from './components/dashboard/Log'
+import Status from './components/dashboard/Status'
 import RuleCreate from './components/rules/RuleCreate'
 import Rules from './components/rules/Rules'
 import RuleView from './components/rules/RuleView'
@@ -25,12 +29,20 @@ import IPTableCreate from './components/iptables/IPTableCreate'
 import Forwarding from './components/iptables/Forwarding'
 import ForwardingCreate from './components/iptables/ForwardingCreate'
 import ForwardingEdit from './components/iptables/ForwardingEdit'
+import Security from './components/security/Security'
+import SecurityBasic from './components/security/Basic'
+import SecurityAdvanced from './components/security/Advanced'
+
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Dashboard} />
     <Route path="users" component={Users} />
     <Route path="articles" component={Articles} />
+    <Route path="statistics" component={Statistics} />
+    <Route path="alert" component={Alert} />
+    <Route path="log" component={Log} />
+    <Route path="status" component={Status} />
     <Route path="rules">
       <IndexRoute component={Rules} />
       <Route path="new" component={RuleCreate} />
@@ -66,6 +78,11 @@ export default (
       <IndexRoute component={Forwarding} />
       <Route path="new" component={ForwardingCreate} />
       <Route path="edit/:id" component={ForwardingEdit} />
+    </Route>
+    <Route path="security">
+      <IndexRoute component={Security} />
+      <Route path="basic" component={SecurityBasic} />
+      <Route path="advanced" component={SecurityAdvanced} />
     </Route>
   </Route>
 );
