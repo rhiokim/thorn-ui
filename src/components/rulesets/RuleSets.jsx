@@ -10,7 +10,6 @@ class RuleSets extends React.Component {
 
     this.state = {
       ruleSetId: undefined,
-      ruleSetFile: undefined,
       isOpen: false
     }
   }
@@ -35,10 +34,10 @@ class RuleSets extends React.Component {
   }
 
   handleClick(act) {
-    const {ruleSetId, ruleSetFile} = this.state
+    const {ruleSetId} = this.state
     switch (act) {
       case 'rules':
-        this.props.router.push(`/rules/sets/${ruleSetFile}`)
+        this.props.router.push(`/rules/sets/${ruleSetId}`)
       break
       case 'view':
         this.props.router.push(`/rulesets/${ruleSetId}`)
@@ -89,7 +88,7 @@ class RuleSets extends React.Component {
                 <td>3 months ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9" onClick={() => this.setState({ruleSetFile: 'app_server.rules'})}></a>
+                    <a className="icon-menu9" onClick={() => this.setState({ruleSetId: Math.random()})}></a>
                   </Popover>
                 </td>
               </tr>

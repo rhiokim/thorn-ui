@@ -6,18 +6,23 @@ class SecurityAdvanced extends React.Component {
   constructor() {
     super()
 
+    this.toggleEnabledChange = this.toggleEnabledChange.bind(this)
     this.handleEnabledChange = this.handleEnabledChange.bind(this)
 
     this.state = {
-      isEnabled: false
+      isEnabled: true
     }
   }
 
-  handleEnabledChange() {
+  toggleEnabledChange() {
+    this.setState({isEnabled: !this.state.isEnabled})
+  }
 
+  handleEnabledChange() {
   }
 
   render() {
+    const {isEnabled} = this.state
     const {goBack} = this.props.router
     return (
       <div className="panel panel-flat">
@@ -38,17 +43,17 @@ class SecurityAdvanced extends React.Component {
               <legend className="text-bold">
                 DoS Protection
 
-                <Switch className="pull-left" defaultChecked={this.state.isEnabled} label="" onChange={this.handleEnabledChange} />
+                <Switch className="pull-left" defaultChecked={false} label="" onChange={this.toggleEnabledChange} />
               </legend>
 
               <div className="form-group">
                 <div className="col-lg-12">
-                  <Switch defaultChecked={this.state.isEnabled} label="Enable ICMP-Flood Attack Filtering" onChange={this.handleEnabledChange} />
+                  <Switch disabled={isEnabled} label="Enable ICMP-Flood Attack Filtering" onChange={this.handleEnabledChange} />
                 </div>
                 <div className="col-xs-12 ml-20 pl-20">
                   <label className="pt-label pt-inline pl-10">
                     <span className=" text-bold">ICMP-Flood Packets Threshold (5~3600):</span>
-                    <input className="pt-input" type="text" placeholder="" dir="auto" />
+                    <input className="pt-input" type="text" disabled={isEnabled} placeholder="" dir="auto" />
                     <span className="pt-inline pl-10">packets/second</span>
                   </label>
                 </div>
@@ -56,12 +61,12 @@ class SecurityAdvanced extends React.Component {
 
               <div className="form-group">
                 <div className="col-lg-12">
-                  <Switch defaultChecked={this.state.isEnabled} label="Enable UDP-Flood Attack Filtering" onChange={this.handleEnabledChange} />
+                  <Switch disabled={isEnabled} label="Enable UDP-Flood Attack Filtering" onChange={this.handleEnabledChange} />
                 </div>
                 <div className="col-xs-12 ml-20 pl-20">
                   <label className="pt-label pt-inline pl-10">
                     <span className=" text-bold">UDP-Flood Packets Threshold (5~3600) :</span>
-                    <input className="pt-input" type="text" placeholder="" dir="auto" />
+                    <input className="pt-input" type="text" disabled={isEnabled} placeholder="" dir="auto" />
                     <span className="pt-inline pl-10">packets/second</span>
                   </label>
                 </div>
@@ -69,12 +74,12 @@ class SecurityAdvanced extends React.Component {
 
               <div className="form-group">
                 <div className="col-lg-12">
-                  <Switch defaultChecked={this.state.isEnabled} label="Enable TCP-SYN-Flood Attack Filtering" onChange={this.handleEnabledChange} />
+                  <Switch disabled={isEnabled} label="Enable TCP-SYN-Flood Attack Filtering" onChange={this.handleEnabledChange} />
                 </div>
                 <div className="col-xs-12 ml-20 pl-20">
                   <label className="pt-label pt-inline pl-10">
                     <span className=" text-bold">TCP-SYN-Flood Packets Threshold (5~3600) :</span>
-                    <input className="pt-input" type="text" placeholder="" dir="auto" />
+                    <input className="pt-input" type="text" disabled={isEnabled} placeholder="" dir="auto" />
                     <span className="pt-inline pl-10">packets/second</span>
                   </label>
                 </div>
@@ -82,7 +87,7 @@ class SecurityAdvanced extends React.Component {
 
               <div className="form-group">
                 <div className="col-lg-12">
-                  <Switch defaultChecked={this.state.isEnabled} label="Forbid Ping Packet From LAN Port" onChange={this.handleEnabledChange} />
+                  <Switch disabled={isEnabled} label="Forbid Ping Packet From LAN Port" onChange={this.handleEnabledChange} />
                 </div>
               </div>
             </fieldset>

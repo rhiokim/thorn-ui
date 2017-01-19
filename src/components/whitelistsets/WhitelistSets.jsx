@@ -9,8 +9,7 @@ class WhitelistSets extends React.Component {
     this.toggleDialog = this.toggleDialog.bind(this)
 
     this.state = {
-      ruleSetId: undefined,
-      ruleSetFile: undefined,
+      whitelistSetId: undefined,
       isOpen: false
     }
   }
@@ -35,16 +34,16 @@ class WhitelistSets extends React.Component {
   }
 
   handleClick(act) {
-    const {ruleSetId, ruleSetFile} = this.state
+    const {whitelistSetId} = this.state
     switch (act) {
       case 'rules':
-        this.props.router.push(`/whitelists/sets/${ruleSetFile}`)
+        this.props.router.push(`/whitelists/sets/${whitelistSetId}`)
       break
       case 'view':
-        this.props.router.push(`/whitelists/${ruleSetId}`)
+        this.props.router.push(`/whitelistsets/${whitelistSetId}`)
       break
       case 'edit':
-        this.props.router.push(`/whitelists/edit/${ruleSetId}`)
+        this.props.router.push(`/whitelistsets/edit/${whitelistSetId}`)
       break
       case 'deactivate':
       break
@@ -62,7 +61,7 @@ class WhitelistSets extends React.Component {
         <div className="panel-heading">
           <h5 className="panel-title">Whitelist Sets<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
           <div className="heading-elements">
-            <AnchorButton href="#/rulesets/new" text="New" iconName="add" intent={Intent.PRIMARY}/>
+            <AnchorButton href="#/whitelistsets/new" text="New" iconName="add" intent={Intent.PRIMARY}/>
           </div>
         </div>
 
@@ -74,29 +73,41 @@ class WhitelistSets extends React.Component {
           <table className="table table-bordered table-striped">
             <thead>
               <tr>
-                <th className="col-lg-3">Description</th>
-                <th className="col-lg-5">File</th>
-                <th className="col-lg-3">Updated</th>
+                <th className="col-lg-5">Description</th>
+                <th className="col-lg-4">File</th>
+                <th className="col-lg-2">Updated</th>
                 <th className="col-lg-1"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>APP_SERVER</td>
+                <td>Samsung SSO</td>
                 <td>
-                  <Link to={`/rulesets/${Math.random()}`}>app_server.rules</Link>
+                  <Link to={`/whitelistsets/${Math.random()}`}>samsung_sso.rules</Link>
                 </td>
-                <td>3 months ago</td>
+                <td>1 day ago</td>
                 <td className="text-center">
                   <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9" onClick={() => this.setState({ruleSetFile: 'app_server.rules'})}></a>
+                    <a className="icon-menu9" onClick={() => this.setState({whitelistSetId: Math.random()})}></a>
                   </Popover>
                 </td>
               </tr>
               <tr>
-                <td>BROWSER_ONLY</td>
+                <td>Samsung Mobile Site</td>
                 <td>
-                  <Link to="">browser_only.rules</Link>
+                  <Link to={`/whitelistsets/${Math.random()}`}>samsung_mobile.rules</Link>
+                </td>
+                <td>3 months ago</td>
+                <td className="text-center">
+                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
+                    <a className="icon-menu9" onClick={() => this.setState({whitelistSetId: Math.random()})}></a>
+                  </Popover>
+                </td>
+              </tr>
+              <tr>
+                <td>Samsung SSG Site</td>
+                <td>
+                  <Link to="">samsung_ssg.rules</Link>
                 </td>
                 <td>2 weeks ago</td>
                 <td className="text-center">
@@ -106,21 +117,9 @@ class WhitelistSets extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>HONEYPOTS</td>
+                <td>Samsung Corporation Site</td>
                 <td>
-                  <Link to="">honeypots.rules</Link>
-                </td>
-                <td>1 day ago</td>
-                <td className="text-center">
-                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                    <a className="icon-menu9"></a>
-                  </Popover>
-                </td>
-              </tr>
-              <tr>
-                <td>MALWARE</td>
-                <td>
-                  <Link to="">malware.rules</Link>
+                  <Link to="">samsung_corp.rules</Link>
                 </td>
                 <td>34 seconds ago</td>
                 <td className="text-center">
@@ -130,9 +129,9 @@ class WhitelistSets extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>IMPORT</td>
+                <td>Samsung Galaxy Note III Promotion</td>
                 <td>
-                  <Link to="">import.rules</Link>
+                  <Link to="">samsung_galaxy_note_promotion.rules</Link>
                 </td>
                 <td>12 hours ago</td>
                 <td className="text-center">
@@ -142,9 +141,9 @@ class WhitelistSets extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>SCAN</td>
+                <td>Samsung Camera Site</td>
                 <td>
-                  <Link to="">scan.rules</Link>
+                  <Link to="">samsung_camera.rules</Link>
                 </td>
                 <td>3 days ago</td>
                 <td className="text-center">
@@ -154,9 +153,9 @@ class WhitelistSets extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>WEB_APPS</td>
+                <td>Samsung Hauzen Site</td>
                 <td>
-                  <Link to="">web_apps.rules</Link>
+                  <Link to="">samsung_hauzen.rules</Link>
                 </td>
                 <td>39 years ago</td>
                 <td className="text-center">
