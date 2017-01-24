@@ -41,8 +41,10 @@ export default (
     <Route path="articles" component={Articles} />
     <Route path="statistics" component={Statistics} />
     <Route path="alert" component={Alert} />
-    <Route path="log" component={Log} />
     <Route path="status" component={Status} />
+    <Route path="log">
+      <IndexRoute component={Log} />
+    </Route>
     <Route path="rules">
       <IndexRoute component={Rules} />
       <Route path="new" component={RuleCreate} />
