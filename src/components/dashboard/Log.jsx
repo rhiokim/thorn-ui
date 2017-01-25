@@ -147,8 +147,8 @@ export default class Log extends React.Component {
               <td><span className="label label-info">ARGS</span></td>
               <td>/login.php</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>12</td>
+              <td>8</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -160,8 +160,8 @@ export default class Log extends React.Component {
               <td><span className="label label-info">FILE_EXT</span></td>
               <td>/admin/login.php</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>24</td>
+              <td>24</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -173,8 +173,8 @@ export default class Log extends React.Component {
               <td><span className="label label-info">FILE_EXT</span></td>
               <td>/phpmyadmin/admin.php</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>1,233</td>
+              <td>853</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -186,8 +186,8 @@ export default class Log extends React.Component {
               <td><span className="label label-info">ARGS</span></td>
               <td>/phpmyadmin/install.php</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>2,032</td>
+              <td>384</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -199,8 +199,8 @@ export default class Log extends React.Component {
               <td><span className="label label-info">BODY</span></td>
               <td>/service/setup.php</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>384</td>
+              <td>32</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -212,8 +212,8 @@ export default class Log extends React.Component {
               <td><span className="label label-info">BODY</span></td>
               <td>/sso/login.jsp</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>38,193</td>
+              <td>8,394</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -225,8 +225,8 @@ export default class Log extends React.Component {
               <td><span className="label label-info">BODY</span></td>
               <td>/events/invite.asp</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>3,132</td>
+              <td>83</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -236,10 +236,10 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">BODY</span></td>
-              <td>/a</td>
+              <td>/admin/initial.php</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>4,994</td>
+              <td>383</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -249,10 +249,10 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">ARGS</span></td>
-              <td>/a</td>
+              <td>/admin/install.php</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>12</td>
+              <td>8</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -262,10 +262,10 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">HEADERS</span></td>
-              <td>/a</td>
+              <td>/known_hosts</td>
               <td>&lt;/iframe&gt;</td>
-              <td>54</td>
-              <td>54</td>
+              <td>5</td>
+              <td>3</td>
               <td>
                 <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
                   <a className="icon-menu9" onClick={() => {}}></a>
@@ -275,7 +275,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">HEADERS</span></td>
-              <td>/a</td>
+              <td>/authorized_keys</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>
@@ -288,7 +288,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">ARGS</span></td>
-              <td>/a</td>
+              <td>/dev/tcp</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>
@@ -301,7 +301,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">ARGS</span></td>
-              <td>/a</td>
+              <td>/whitelist.pac</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>
@@ -314,7 +314,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">ARGS</span></td>
-              <td>/a</td>
+              <td>file://</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>
@@ -327,7 +327,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">$HEADERS_VAR</span></td>
-              <td>/a</td>
+              <td>/manager/jmxproxy</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>
@@ -340,7 +340,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">ARGS</span></td>
-              <td>/a</td>
+              <td>/wp-content/uploads/optpress/</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>
@@ -353,7 +353,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">ARGS</span></td>
-              <td>/a</td>
+              <td>/cgi-bin/php</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>
@@ -366,7 +366,7 @@ export default class Log extends React.Component {
             <tr>
               <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
               <td><span className="label label-info">ARGS</span></td>
-              <td>/a</td>
+              <td>/wp-content/themes/</td>
               <td>&lt;/iframe&gt;</td>
               <td>54</td>
               <td>54</td>

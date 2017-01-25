@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router'
-import {Menu, MenuDivider, MenuItem, Popover, Position} from "@blueprintjs/core"
+import {Menu, MenuDivider, MenuItem, Popover, Position} from '@blueprintjs/core'
 
 import logo from '../assets/images/logo_dark.png'
 
@@ -20,6 +20,15 @@ class HeaderNav extends React.Component {
       case 'new-iptable':
         this.props.router.push('/netfilter/iptable/new')
       break
+      case 'settings':
+        this.props.router.push('/admin')
+      break
+      case 'edit-mz':
+        this.props.router.push('/admin/mz')
+      break
+      case 'edit-score':
+        this.props.router.push('/admin/score')
+      break
       default:
       break
     }
@@ -33,9 +42,9 @@ class HeaderNav extends React.Component {
         <MenuItem iconName="graph" text="Update Thorn" />
         <MenuDivider />
         <MenuItem iconName="cog" text="Admin...">
-          <MenuItem iconName="graph" text="Settings" />
-          <MenuItem iconName="map" text="Edit Matching Zones" />
-          <MenuItem iconName="th" text="Edit Score" shouldDismissPopover={false} />
+          <MenuItem iconName="graph" text="Settings" onClick={this.handleClick.bind(this, 'settings')} />
+          <MenuItem iconName="map" text="Edit Matching Zones" onClick={this.handleClick.bind(this, 'edit-mz')}/>
+          <MenuItem iconName="th" text="Edit Score" shouldDismissPopover={false} onClick={this.handleClick.bind(this, 'edit-score')} />
           <MenuItem iconName="map" text="Import Ruleset" />
           <MenuItem iconName="zoom-to-fit" text="Database Backups" disabled={true} />
         </MenuItem>

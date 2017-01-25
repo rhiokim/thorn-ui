@@ -32,7 +32,9 @@ import ForwardingEdit from './components/iptables/ForwardingEdit'
 import Security from './components/security/Security'
 import SecurityBasic from './components/security/Basic'
 import SecurityAdvanced from './components/security/Advanced'
-
+import Settings from './components/admin/Settings'
+import MatchingZone from './components/admin/MatchingZone'
+import Score from './components/admin/Score'
 
 export default (
   <Route path="/" component={App}>
@@ -42,6 +44,11 @@ export default (
     <Route path="statistics" component={Statistics} />
     <Route path="alert" component={Alert} />
     <Route path="status" component={Status} />
+    <Route path="admin">
+      <IndexRoute component={Settings} />
+      <Route path="mz" component={MatchingZone} />
+      <Route path="score" component={Score} />
+    </Route>
     <Route path="log">
       <IndexRoute component={Log} />
     </Route>

@@ -20,7 +20,7 @@ class IPTableCreate extends React.Component {
     return (
       <div className="panel panel-flat">
         <div className="panel-heading">
-          <h5 className="panel-title">New net filtering rule<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
+          <h5 className="panel-title">New Net filtering rule<a className="heading-elements-toggle"><i className="icon-more"></i></a></h5>
           <div className="heading-elements">
           </div>
         </div>
