@@ -8,7 +8,8 @@ import Articles from './containers/Articles';
 import Dashboard from './components/dashboard/Dashboard'
 import Statistics from './components/dashboard/Statistics'
 import Alert from './components/dashboard/Alert'
-import Log from './components/dashboard/Log'
+import Logs from './components/dashboard/Logs'
+import LogView from './components/dashboard/LogView'
 import Status from './components/dashboard/Status'
 import RuleCreate from './components/rules/RuleCreate'
 import Rules from './components/rules/Rules'
@@ -49,8 +50,9 @@ export default (
       <Route path="mz" component={MatchingZone} />
       <Route path="score" component={Score} />
     </Route>
-    <Route path="log">
-      <IndexRoute component={Log} />
+    <Route path="logs">
+      <IndexRoute component={Logs} />
+      <Route path=":id" component={LogView} />
     </Route>
     <Route path="rules">
       <IndexRoute component={Rules} />

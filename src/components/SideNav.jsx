@@ -28,7 +28,7 @@ export default class SideNav extends React.Component {
                     <li className="hidden">
                       <Link to="/statistics">Statistics <span className="label label-info pull-right">New</span></Link>
                     </li>
-                    <li><Link to="/log">Log</Link></li>
+                    <li><Link to="/logs">Log</Link></li>
                     <li className="hidden">
                       <Link to="/alert">Alerts <span className="badge badge-danger pull-right">24</span></Link>
                     </li>

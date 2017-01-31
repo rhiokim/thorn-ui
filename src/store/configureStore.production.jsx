@@ -6,12 +6,14 @@ import {routerMiddleware, routerReducer as routing} from 'react-router-redux';
 
 import articleReducer from '../reducers/article';
 import userReducer from '../reducers/user';
+import searchReducer from '../reducers/search';
 
 const router = routerMiddleware(hashHistory);
 
 const rootReducer = combineReducers({
   articleReducer: articleReducer,
   userReducer: userReducer,
+  searchReducer: searchReducer,
   routing: routing,
 });
 
