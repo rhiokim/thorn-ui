@@ -111,30 +111,6 @@ class LogView extends React.Component {
                   <td>Variable</td>
                   <td>{naxsi.var_name0}</td>
                 </tr>
-                <tr className="border-solid">
-                  <td>CheckRule</td>
-                  <td>$XSS</td>
-                  <td>Score</td>
-                  <td>16</td>
-                </tr>
-                <tr>
-                  <td>Matching Zone (<a href="#/rules/1031">1031</a>)</td>
-                  <td>HEADER</td>
-                  <td>Variable</td>
-                  <td>user-agent</td>
-                </tr>
-                <tr>
-                  <td>Matching Zone (<a href="#/rules/1032">1032</a>)</td>
-                  <td>BODY</td>
-                  <td>Variable</td>
-                  <td>tid[sqltype]</td>
-                </tr>
-                <tr>
-                  <td>Matching Zone (<a href="#/rules/400321">400321</a>)</td>
-                  <td>BODY|NAME</td>
-                  <td>Variable</td>
-                  <td>tid[sqltype]</td>
-                </tr>
               </tbody>
             </table>
           </div>
