@@ -59,6 +59,7 @@ class RuleSetEdit extends React.Component {
                 </div>
               </div>
             </fieldset>
+
             <div className="text-right">
               <Button className="pt-intent" iconName="add" text="Cancel" onClick={goBack} />
               <Button className="pt-intent-primary ml-5" iconName="add" text="Save" />

@@ -4,3 +4,7 @@
 .sidebar-main {
   z-index: 20;
 }
+
+.pre-scrollable {
+  max-height: 536px;
+}

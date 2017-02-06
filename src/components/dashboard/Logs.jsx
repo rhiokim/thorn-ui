@@ -12,10 +12,12 @@ class Logs extends React.Component {
 
     this.toggleDialog = this.toggleDialog.bind(this)
     this.toggleDeactivateAlert = this.toggleDeactivateAlert.bind(this)
+    this.changeCountHandler = this.changeCountHandler.bind(this)
 
     this.state = {
       logId: undefined,
-      ruleId: undefined
+      ruleId: undefined,
+      limit: 12
     }
   }
 
@@ -32,7 +34,8 @@ class Logs extends React.Component {
   )
 
   componentWillMount() {
-    this.props.fetchLogs()
+    const {limit} = this.state
+    this.props.fetchLogs({limit})
   }
 
   handleClick(act) {
@@ -78,9 +81,16 @@ class Logs extends React.Component {
     })
   }
 
+  changeCountHandler(e) {
+    const selected = e.target.selectedOptions[0]
+    this.setState({limit: selected.value}, () => {
+      const {limit} = this.state
+      this.props.fetchLogs({limit})
+    })
+  }
+
   render() {
     const {hits} = this.props
-    console.log(hits)
     return (
       <div className="panel panel-flat">
       {/* Scrollable datatable */}
@@ -95,46 +105,66 @@ class Logs extends React.Component {
           </div>
         </div>
 
-        <div className="panel-body hidden">
-          This example shows the DataTables table body <code>scrolling</code> in the <code>vertical</code> direction. This can generally be seen as an alternative method to pagination for displaying a large table in a fairly small vertical area, and as such pagination has been disabled here. Note that this is not mandatory, it will work just fine with pagination enabled as well!.
+        <div className="panel-body">
+          <div className="row">
+            <div className="col-lg-6">
+            </div>
+            <div className="col-lg-6">
+              <label className="pt-label pt-inline pull-right">
+                Show:
+
+                <div className="pt-select">
+                  <select onChange={this.changeCountHandler}>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                  </select>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
 
-        <table className="table" width="100%" ref="logTable">
-          <thead>
-            <tr>
-              <th className="text-center" style={{width: 50 + 'px'}}>!</th>
-              <th className="cl">MZ</th>
-              <th className="cl">URI</th>
-              <th className="cl">Var</th>
-              <th className="cl">PCount</th>
-              <th className="cl">BCount</th>
-              <th className="cl-md hidden-xs">CScore</th>
-              <th className="cl-sm hidden-xs">Type</th>
-              <th className="text-center" style={{width: 50 + 'px'}}>
-                <i className="icon-menu9" title="Action"></i>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          {hits.map(hit => (
-            <tr key={hit._id}>
-              <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
-              <td><span className="label label-info">{hit._source.naxsi_sig.zone0}</span></td>
-              <td>{hit._source.naxsi_sig.uri}</td>
-              <td>&lt;/iframe&gt;</td>
-              <td>{hit._source.naxsi_sig.total_processed}</td>
-              <td>{hit._source.naxsi_sig.total_blocked}</td>
-              <td className="text-danger">{hit._source.naxsi_sig.cscore0}</td>
-              <td>{hit._source.naxsi_sig.ip}</td>
-              <td>
-                <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
-                  <a className="icon-menu9" onClick={this.clickActionMenu.bind(this, hit)}></a>
-                </Popover>
-              </td>
-            </tr>
-          ))}
-          </tbody>
-        </table>
+        <div className="table-responsive pre-scrollable">
+          <table className="table" width="100%" ref="logTable">
+            <thead>
+              <tr>
+                <th className="text-center" style={{width: 50 + 'px'}}>!</th>
+                <th className="cl">MZ</th>
+                <th className="cl">URI</th>
+                <th className="cl">Status</th>
+                <th className="cl-md hidden-xs">CScore</th>
+                <th className="cl-sm hidden-xs">Client</th>
+                <th className="cl-sm hidden-xs">Destination</th>
+                <th className="text-center" style={{width: 50 + 'px'}}>
+                  <i className="icon-menu9" title="Action"></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            {hits.map(hit => (
+              <tr key={hit._id}>
+                <td className="text-center"><span className="pt-icon-standard pt-icon-error text-danger"></span></td>
+                <td><span className="label label-info">{hit._source.naxsi_sig.zone0}</span></td>
+                <td>{hit._source.naxsi_sig.uri}</td>
+                <td>{hit._source.status}</td>
+                <td className="text-danger">{hit._source.naxsi_sig.cscore0}</td>
+                <td>{hit._source.naxsi_sig.ip}</td>
+                <td>{hit._source.naxsi_sig.server}</td>
+                <td>
+                  <Popover content={this.ruleMenu} position={Position.BOTTOM_RIGHT}>
+                    <a className="icon-menu9" onClick={this.clickActionMenu.bind(this, hit)}></a>
+                  </Popover>
+                </td>
+              </tr>
+            ))}
+              <tr>
+                <td colSpan="9"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div className="p-20 text-center">
           <ul className="pagination">
